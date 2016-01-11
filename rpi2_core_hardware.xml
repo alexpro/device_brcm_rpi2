@@ -8,7 +8,5 @@
 
     <feature name="android.software.app_widgets" />
     <feature name="android.software.backup" />
-    <feature name="android.software.leanback" />
-    <feature name="android.software.live_tv" />
 
 </permissions>

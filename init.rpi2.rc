@@ -10,6 +10,10 @@ on init
     symlink /storage/emulated/legacy /sdcard
     symlink /storage/emulated/legacy /storage/sdcard0
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
+    
+    write /sys/kernel/mm/ksm/pages_to_scan 100
+    write /sys/kernel/mm/ksm/sleep_millisecs 500
+    write /sys/kernel/mm/ksm/run 1
 
 on fs
     mount_all /fstab.rpi2
@@ -22,10 +26,6 @@ on post-fs-data
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
-
-on early-boot
-
-    setprop sys.fb.bits 16
 
 on boot
     setprop net.dns1 8.8.8.8

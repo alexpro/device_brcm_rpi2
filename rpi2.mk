@@ -12,7 +12,13 @@ PRODUCT_AAPT_PREF_CONFIG := tvdpi
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 PRODUCT_PACKAGES += \
-    libGLES_android
+    libGLES_mesa \
+    gralloc.$(TARGET_PRODUCT) \
+    hwcomposer.$(TARGET_PRODUCT) \
+    audio.primary.$(TARGET_PRODUCT) \
+    Launcher2 \
+    Settings \
+    Browser \
 
 PRODUCT_COPY_FILES := \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
@@ -26,9 +32,10 @@ PRODUCT_COPY_FILES := \
     $(LOCAL_PATH)/init.rpi2.rc:root/init.rpi2.rc \
     $(LOCAL_PATH)/init.usb.rc:root/init.usb.rc \
     $(LOCAL_PATH)/fstab.rpi2:root/fstab.rpi2 \
+    $(LOCAL_PATH)/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/Generic.kl:system/usr/keylayout/Generic.kl \
     $(PRODUCT_COPY_FILES)
 
 DEVICE_PACKAGE_OVERLAYS := device/brcm/rpi2/overlay
 PRODUCT_CHARACTERISTICS := tablet,nosdcard
-PRODUCT_LOCALES := en_US,ko_KR,ja_JP,zh_CN
+PRODUCT_LOCALES := en_US,ru_RU,uk_UA
